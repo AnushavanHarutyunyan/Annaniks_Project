@@ -1,0 +1,67 @@
+.about {
+    position: relative;
+    background: white;
+}
+.complex_food p {
+    margin-top: 25px;
+}
+.food_pic {
+    width: 420px;
+}
+
+.paragraph_1 {
+    color: #74808c;
+    padding: 0px;
+}
+
+.about span {
+    position: relative;
+}
+
+.h_div {
+    margin-top: 80px;
+}
+
+.about2 {
+    background-image: url(../../img/jpg/background_img3.jpg);
+    height: 100vh;
+}
+
+.food_img {
+    border-radius: 175px;
+    width: 170px;
+    /* box-shadow: 5px 4px 25px rgb(0 0 0 / 10%) */
+}
+
+.complex_food {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.aout_wrapper {
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: wheat;
+    margin-top: 100px;
+    background-color: rgba(28, 32, 20, 0.7);
+    align-items: center;
+}
+
+.about_section {
+    color: white;
+    text-align: center;
+    margin-top: 65px;
+}
+.about_h3 {
+    padding: 0px;
+    text-align: center;
+    color: white;
+}
+
+.character_img {
+    width: 35%;
+    margin: 0 auto;
+}

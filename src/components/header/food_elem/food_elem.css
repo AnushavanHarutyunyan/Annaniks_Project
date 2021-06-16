@@ -1,0 +1,9 @@
+.food_elem{
+    background-color: white;
+    width: 220px;
+    word-wrap: break-word;
+    box-shadow: 5px 4px 25px rgb(0 0 0 / 10%)
+}
+.price{
+    color: #e83e8c
+}

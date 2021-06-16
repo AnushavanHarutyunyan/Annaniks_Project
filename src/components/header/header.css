@@ -1,0 +1,79 @@
+.nav_bar{
+    margin-top:120px;
+    height: 30px;
+    background-color: #c3b97e;
+}
+.nav_ul{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    list-style: none;
+    margin-bottom: 0px;
+}
+.phone_bar h4{
+    font-size: 24px;
+    color: white;
+}
+.phone_bar {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    border: 1px solid white;
+    border-radius: 25px;
+}
+.phone_bar:hover{
+    text-decoration: none;
+    color: tomato;
+}
+.h1{
+    padding: 50px 200px 0px 200px;
+    text-align: center;
+    color: white;
+}
+h2{
+    text-align: center;
+    color: #80C340;
+}
+.wraper_link{
+    display: flex;
+    justify-content: center;
+    background: rgb(239, 243, 246);
+    padding: 70px 0px;
+}
+.wraper_link a {
+    margin: 0px 15px 0px 15px;
+}
+.link_menu{
+    text-decoration: none;
+    color: rgb(112, 112, 112);
+    padding: 5px 15px;
+    border: 1.5px solid rgb(112, 112, 112);
+    border-radius: 25px;
+}
+.link_menu:hover{
+    text-decoration: none;
+    color:rgb(112, 112, 112);
+    border-color: rgb(161, 3, 95);
+}
+
+.food_elem_wrapper{
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(239, 243, 246);
+    padding: 0px 20px 0 20px;
+}
+
+.green {
+    color: white !important;
+    background-color: #80C340;
+    text-decoration: none;
+    padding: 5px 15px;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+.green:hover{
+    background-color: yellowgreen;
+    text-decoration: none;
+}

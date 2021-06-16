@@ -1,0 +1,42 @@
+.wrapper_payment{
+    background-color: #98BC52;
+}
+
+.wrapper_payment h1 {
+    margin-bottom: 50px;
+}
+
+.icon{
+    font-size: 25px;
+    background-color:chartreuse;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 25px;
+    top: 6px;
+}
+
+.text_center {
+    text-align: center;
+    height: 130px;
+}
+
+.fontAwesome{
+    width: 100px;
+    position: absolute;
+    left: 32%;
+    /* margin-left: -7px; */
+    top: 50%;
+    margin-top: -15px;
+}
+
+.icon_wrapper{
+    position: absolute;
+    left: 79px;
+    top: -43px;
+    height: 81px;
+    width: 84px;
+    border-radius: 66px;
+}

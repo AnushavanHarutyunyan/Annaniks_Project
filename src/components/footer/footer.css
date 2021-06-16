@@ -1,0 +1,15 @@
+.footer_block {
+    margin: 40px 20px 0px 20px;
+    color: white;
+}
+
+.footer_phone_bar {
+    display: flex;
+    justify-content: center;
+    padding: 45px 0px 45px 0px;
+    text-align: center;
+}
+.footer_phone_bar h4 {
+    margin-top: 8px;
+    margin-right: 30px;
+}

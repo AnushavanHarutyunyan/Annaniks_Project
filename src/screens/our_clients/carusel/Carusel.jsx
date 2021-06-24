@@ -1,21 +1,26 @@
-import client from '../../../img/jpg/food_elem.jpg';
-//FontAwesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faChevronLeft,
-    faChevronRight,
-} from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import Slider from 'react-slick';
 
-//Css
-import '../carusel/carusel.css';
+//IMG
+import client from '../../../img/jpg/food_elem.jpg';
+
+//CSS
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './carusel.css';
 
 const Carusel = (props) => {
+    let settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+    };
+
     return (
-        <div className="d-flex justify-content-center">
-            <div className="prev_next_btn">
-                <FontAwesomeIcon icon={faChevronLeft} />
-            </div>
-            <div className=" caruselBlock">
+        <div className="carusel_wrapper">
+            <Slider {...settings}>
                 <div>
                     <img src={client} alt="client" />
                 </div>
@@ -31,10 +36,10 @@ const Carusel = (props) => {
                 <div>
                     <img src={client} alt="client" />
                 </div>
-            </div>
-            <div className="prev_next_btn">
-                <FontAwesomeIcon icon={faChevronRight} />
-            </div>
+                <div>
+                    <img src={client} alt="client" />
+                </div>
+            </Slider>
         </div>
     );
 };

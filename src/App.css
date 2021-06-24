@@ -1,18 +1,21 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background-color: #3F3F47;
+body {
+    background-color: #3f3f47;
     /* background-position: center;
     background-size: cover; */
 }
-.App{
+.App {
     width: 1000px;
-    margin: 0 auto;    
+    margin: 0 auto;
 }
-.wrapper{
+.wrapper {
     background-image: url('img/jpg/background_img2.jpg');
-    background-repeat: no-repeat, repeat;
+    background-repeat: no-repeat;
+    background-position: top;
+    /* width: 1000px; */
+    margin: 0 auto;
 }

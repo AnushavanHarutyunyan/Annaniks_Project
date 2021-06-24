@@ -8,7 +8,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 //CSS
-import '../payment/payment.css';
+import './payment.css';
+import { useTranslation } from 'react-i18next';
 
 const paymentData = [
     {
@@ -38,6 +39,7 @@ const paymentData = [
 ];
 
 const Payment = () => {
+    const { t } = useTranslation();
     const paymentJSX = paymentData.map((elem, indx) => {
         return (
             <div
@@ -53,15 +55,15 @@ const Payment = () => {
                     </div>
                 </div>
                 <div className="pt-5">
-                    <h4 className="text_center mb-2 mt-3">{elem.header}</h4>
-                    <p className="text_center">{elem.paymentAbout}</p>
+                    <h4 className="text_center mb-2 mt-3">{t(elem.header)}</h4>
+                    <p className="text_center">{t(elem.paymentAbout)}</p>
                 </div>
             </div>
         );
     });
     return (
         <div className="wrapper_payment">
-            <h1 className="h1">СПОСОБ ОПЛАТЫ</h1>
+            <h1 className="h1">{t('СПОСОБ ОПЛАТЫ')}</h1>
             <div className="d-flex justify-content-around pt-5 pb-5">
                 {paymentJSX}
             </div>

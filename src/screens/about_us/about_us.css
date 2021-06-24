@@ -1,13 +1,17 @@
 .wrapper_about_us {
     background-color: #eef2f5;
+    height: 581px;
 }
+
 .text_center_about_us {
     text-align: center;
 }
+
 .h1_about_us {
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
 .p_about_us {
     background-color: white;
     width: 60%;
@@ -22,6 +26,7 @@
     width: 132px;
     height: 132px;
 }
+
 .triangel {
     border-left: 1px solid white;
     height: 20px;

@@ -1,16 +1,23 @@
-.nav_bar{
-    margin-top:120px;
+.nav_bar {
+    margin-top: 60px;
     height: 30px;
-    background-color: #c3b97e;
+    background-color: #e2cb44;
 }
-.nav_ul{
+.nav_ul {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     list-style: none;
     margin-bottom: 0px;
 }
-.phone_bar h4{
+.nav_ul > li > a {
+    color: white;
+}
+.nav_ul > li > a:hover {
+    text-decoration: none;
+    color: tan;
+}
+.phone_bar h4 {
     font-size: 24px;
     color: white;
 }
@@ -21,42 +28,43 @@
     border: 1px solid white;
     border-radius: 25px;
 }
-.phone_bar:hover{
+.phone_bar:hover {
     text-decoration: none;
     color: tomato;
+    border-color: tan;
 }
-.h1{
+.h1 {
     padding: 50px 200px 0px 200px;
     text-align: center;
     color: white;
 }
-h2{
+h2 {
     text-align: center;
-    color: #80C340;
+    color: #80c340;
 }
-.wraper_link{
+.wraper_link {
     display: flex;
     justify-content: center;
     background: rgb(239, 243, 246);
-    padding: 70px 0px;
+    padding: 35px 0px;
 }
 .wraper_link a {
     margin: 0px 15px 0px 15px;
 }
-.link_menu{
+.link_menu {
     text-decoration: none;
     color: rgb(112, 112, 112);
     padding: 5px 15px;
     border: 1.5px solid rgb(112, 112, 112);
     border-radius: 25px;
 }
-.link_menu:hover{
+.link_menu:hover {
     text-decoration: none;
-    color:rgb(112, 112, 112);
+    color: rgb(112, 112, 112);
     border-color: rgb(161, 3, 95);
 }
 
-.food_elem_wrapper{
+.food_elem_wrapper {
     color: black;
     display: flex;
     justify-content: space-between;
@@ -66,14 +74,14 @@ h2{
 
 .green {
     color: white !important;
-    background-color: #80C340;
+    background-color: #80c340;
     text-decoration: none;
     padding: 5px 15px;
     text-decoration: none;
     border-radius: 25px;
 }
 
-.green:hover{
+.green:hover {
     background-color: yellowgreen;
     text-decoration: none;
 }

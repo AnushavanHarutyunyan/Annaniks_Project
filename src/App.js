@@ -1,26 +1,25 @@
 //COMPONENTS
-import AboutUs from './about_us/AboutUS';
+import { BrowserRouter } from 'react-router-dom';
 import Header from './components/header/header';
-import Main from '../src/components/main/Main';
-import OurClients from './components/our_clients/OurClients';
-import Footer from '../src/components/footer/Footer';
-import Payment from '../src/components/payment/Payment';
+import Home from './screens';
+import Footer from './components/footer/Footer';
 
 //CSS
 import './App.css';
+import Navigation from './components/navigation/Navigation';
 
 function App() {
     return (
-        <div className="wrapper">
-            <div className="App">
-                <Header />
-                <Main />
-                <Payment />
-                <OurClients />
-                <AboutUs />
-                <Footer />
+        <BrowserRouter>
+            <div className="wrapper">
+                <div className="App">
+                    <Header />
+                    <Navigation />
+                    <Home />
+                    <Footer />
+                </div>
             </div>
-        </div>
+        </BrowserRouter>
     );
 }
 

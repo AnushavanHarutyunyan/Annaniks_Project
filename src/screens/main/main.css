@@ -2,6 +2,11 @@
     position: relative;
     background: white;
 }
+.about2 h1 {
+    color: white;
+    text-align: center;
+    padding: 30px 0px 15px 0px;
+}
 .complex_food p {
     margin-top: 25px;
 }
@@ -17,14 +22,16 @@
 .about span {
     position: relative;
 }
-
+.h1_main {
+    background-color: white;
+    margin-bottom: 0;
+}
 .h_div {
     margin-top: 80px;
 }
 
 .about2 {
     background-image: url(../../img/jpg/background_img3.jpg);
-    height: 100vh;
 }
 
 .food_img {
@@ -64,4 +71,8 @@
 .character_img {
     width: 35%;
     margin: 0 auto;
+}
+.about_h1 {
+    margin-bottom: 0;
+    padding-bottom: 30px;
 }

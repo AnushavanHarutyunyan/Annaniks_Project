@@ -34,7 +34,7 @@
     border-color: tan;
 }
 .h1 {
-    padding: 50px 200px 0px 200px;
+    padding: 50px 60px 0px 60px;
     text-align: center;
     color: white;
 }
@@ -84,4 +84,17 @@ h2 {
 .green:hover {
     background-color: yellowgreen;
     text-decoration: none;
+}
+
+.lng {
+    margin: 6px;
+}
+.lng:hover {
+    cursor: pointer;
+}
+
+.wrapper_lng {
+    background: #0e0e0e;
+    border-radius: 25px;
+    margin-left: 15px;
 }

@@ -1,80 +1,36 @@
 //COMPONENTS
-import FoodElementComp from './food-element/food_element';
-import { Link, useRouteMatch } from 'react-router-dom';
-import Test from '../test/Test';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getFoods } from '../../Redux/actions';
 import { useTranslation } from 'react-i18next';
+import FoodElementComponent from './food-element/food_element';
+import ReactPlaceholder from 'react-placeholder';
+import { menuPlaceholder } from '../../utils/placeholder/placeholder';
 
-const foodData = [
-    {
-        id: 1,
-        title: 'ЗАВТРАК',
-        starsCount: 6,
-        discription: 'Бекон,яичница,картофельная запеканка,тосты,чай/кофе ',
-        wieght: '500 ',
-        quantity: 10,
-        price: '300 ',
-    },
-    {
-        id: 2,
-        title: 'ЗАВТРАК',
-        starsCount: 3,
-        discription: 'Бекон,яичница,картофельная запеканка,тосты,чай/кофе ',
-        wieght: '500 ',
-        quantity: 10,
-        price: '300 ',
-    },
-    {
-        id: 3,
-        title: 'ЗАВТРАК',
-        starsCount: 1,
-        discription: 'Бекон,яичница,картофельная запеканка,тосты,чай/кофе ',
-        wieght: '500 ',
-        quantity: 10,
-        price: '300 ',
-    },
-    {
-        id: 4,
-        title: 'ЗАВТРАК',
-        starsCount: 2,
-        discription: 'Бекон,яичница,картофельная запеканка,тосты,чай/кофе ',
-        wieght: '500 ',
-        quantity: 10,
-        price: '300 ',
-    },
-    {
-        id: 5,
-        title: 'ЗАВТРАК',
-        starsCount: 2,
-        discription: 'Бекон,яичница,картофельная запеканка,тосты,чай/кофе ',
-        wieght: '500 ',
-        quantity: 10,
-        price: '300 ',
-    },
-    {
-        id: 6,
-        title: 'ЗАВТРАК',
-        starsCount: 2,
-        discription: 'Бекон,яичница,картофельная запеканка,тосты,чай/кофе ',
-        wieght: '500 ',
-        quantity: 10,
-        price: '300 ',
-    },
-];
+//CSS
+import 'react-placeholder/lib/reactPlaceholder.css';
 
-const Menu = (props) => {
+const Menu = () => {
+    const dispatch = useDispatch();
+    const isLoading = useSelector((state) => state.globalState.isLoading);
+    const { foodsData } = useSelector((store) => store.allFoodsState);
+
+    //Translation
     const { t } = useTranslation();
-    const { url } = useRouteMatch();
-    const foodElemJSX = foodData.map((elem, indx) => {
+
+    useEffect(() => {
+        dispatch(getFoods());
+    }, []);
+    const foodElemJSX = foodsData.map((elem, indx) => {
         return (
-            <div className="row" key={indx}>
-                <Link to={`${url}/breakfast?id=${elem.id}`}>
-                    <FoodElementComp foodElem={elem} />
+            <div className="row ml-2 mr-2" key={indx}>
+                <Link to={`/breakfast?id=${elem.id}`}>
+                    <FoodElementComponent data={elem} />
                 </Link>
             </div>
         );
     });
-
-    let url1 = window.location.search.slice(1);
 
     return (
         <div>
@@ -86,13 +42,18 @@ const Menu = (props) => {
                     {t('МЕНЮ НА СЛЕДУЮЩУЮ НЕДЕЛЮ')}
                 </a>
             </div>
+
             <div className="container">
                 <div className="food_elem_wrapper row">
-                    {url1 === 'id=1' ? (
-                        <Test props={props.history} />
-                    ) : (
-                        foodElemJSX
-                    )}
+                    <ReactPlaceholder
+                        showLoadingAnimation
+                        type="text"
+                        rows={10}
+                        ready={isLoading}
+                        customPlaceholder={menuPlaceholder}
+                    >
+                        {foodElemJSX}
+                    </ReactPlaceholder>
                 </div>
             </div>
             <div className="wraper_link">

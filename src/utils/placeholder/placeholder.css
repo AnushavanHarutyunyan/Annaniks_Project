@@ -1,0 +1,9 @@
+.round_shape_placeholder {
+    margin: 0 auto;
+}
+
+.my_awesome_placeholder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

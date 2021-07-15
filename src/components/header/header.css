@@ -67,7 +67,7 @@ h2 {
 .food_elem_wrapper {
     color: black;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     background-color: rgb(239, 243, 246);
     padding: 0px 20px 0 20px;
 }

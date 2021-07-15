@@ -1,46 +1,61 @@
 //COMPONENTS
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../locales/i18n';
+
 //CSS
 import './header.css';
+
 //PICTURE
 import russian from '../../img/png/russian.png';
 import english from '../../img/png/english.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleSignIn } from '../../Redux/actions';
 
 const Header = () => {
     const { t } = useTranslation();
-
+    const dispatch = useDispatch();
+    const bool = useSelector((store) => store.appState.loginPageState);
     const handleChangeLang = (lng) => {
         i18n.changeLanguage(lng);
     };
-
+    const handleSignIn = () => {
+        dispatch(toggleSignIn(!bool));
+    };
     return (
         <>
             <div>
                 <div className="d-flex justify-content-end">
                     <div className="d-flex align-items-center pt-2 pb-2 ">
-                        <div className="">
+                        <div>
                             <h4 className="float-right text-white">
                                 +374 (77) 77 33 77
                             </h4>
                         </div>
-                        <div className="">
+                        <div>
                             <a href="/" className="float-right phone_bar">
                                 {t('ЗАКАТЬ ЗВАНОК')}
                             </a>
                         </div>
                         <div>
-                            {/* <Button
-                                className="mr-2 ml-2"
-                                onClick={() => handleChangeLang('en')}
+                            <Link
+                                to="/sign_in"
+                                className="float-right phone_bar"
+                                onClick={handleSignIn}
                             >
-                                EN
-                            </Button>
-                            <Button onClick={() => handleChangeLang('ru')}>
-                                RU
-                            </Button> */}
+                                {t('Sign In')}
+                            </Link>
+                        </div>
+                        {/* <div>
+                            <Link
+                                to="/sign_up"
+                                className="float-right phone_bar"
+                            >
+                                {t('Sign Up')}
+                            </Link>
+                        </div> */}
+                        <div>
                             <div className="wrapper_lng">
                                 <span
                                     className="lng"

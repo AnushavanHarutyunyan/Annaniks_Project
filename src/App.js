@@ -7,17 +7,24 @@ import Footer from './components/footer/Footer';
 //CSS
 import './App.css';
 import Navigation from './components/navigation/Navigation';
+import RegistrationComponent from './components/registration/registrationPage';
+import { useSelector } from 'react-redux';
 
 function App() {
+    const bool = useSelector((store) => store.appState.loginPageState);
     return (
         <BrowserRouter>
             <div className="wrapper">
-                <div className="App">
-                    <Header />
-                    <Navigation />
-                    <Home />
-                    <Footer />
-                </div>
+                {bool ? (
+                    <RegistrationComponent />
+                ) : (
+                    <div className="App">
+                        <Header />
+                        <Navigation />
+                        <Home />
+                        <Footer />
+                    </div>
+                )}
             </div>
         </BrowserRouter>
     );

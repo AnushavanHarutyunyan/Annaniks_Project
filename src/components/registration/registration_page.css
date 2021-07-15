@@ -1,0 +1,26 @@
+.sing_up_wrapper {
+    background-color: white;
+    width: 50%;
+}
+.form {
+    padding: 100px 40px 100px 160px;
+}
+.form_group input {
+    width: 75%;
+}
+.submit_btn {
+    width: 75%;
+}
+.icons_wrapper {
+    display: flex;
+    width: 75%;
+    justify-content: space-around;
+    padding: 23px;
+}
+.apple_icon {
+    width: 48px;
+    height: 48px;
+}
+.icons_wrapper > a:hover {
+    cursor: pointer;
+}

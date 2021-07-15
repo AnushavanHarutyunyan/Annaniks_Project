@@ -1,0 +1,13 @@
+.food_item_wrapper {
+    background-color: white;
+}
+
+.food_item {
+    width: 500px;
+    margin: 0 auto;
+}
+.react_placeholder {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}

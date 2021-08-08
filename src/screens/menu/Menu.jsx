@@ -21,7 +21,8 @@ const Menu = () => {
 
     useEffect(() => {
         dispatch(getFoods());
-    }, []);
+    }, [dispatch]);
+
     const foodElemJSX = foodsData.map((elem, indx) => {
         return (
             <div className="row ml-2 mr-2" key={indx}>

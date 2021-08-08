@@ -13,7 +13,7 @@ import ksherq from '../../../img/svg/ksherq.png';
 const FoodElementComponent = (props) => {
     // const state = useSelector((state) => state.allFoodsState.foodsData);
     const { t } = useTranslation();
-    const { email, name, id, website } = props.data;
+    const { email, name, id } = props.data;
     // // const { title, starsCount, description, wieght, quantity, price } =
     // //     props.foodElem;
     // let stars = [];

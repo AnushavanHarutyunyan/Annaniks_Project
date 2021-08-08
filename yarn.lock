@@ -9479,6 +9479,13 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-bootstrap-floating-label@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-floating-label/-/react-bootstrap-floating-label-1.6.0.tgz#ca23c6aeba9c11ee64ff8862777532d742ece4d7"
+  integrity sha512-UkNXeQ+ZfZfqgLDPERDS1DvHbtrM/QFh/82iTPXgdZkgseDUVB54PJ5LedyEHboqpG7TN3E9J7vb238qJWb+xA==
+  dependencies:
+    react-icons "^4.2.0"
+
 react-bootstrap@^1.6.1:
   version "1.6.1"
   resolved "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-1.6.1.tgz"
@@ -9558,6 +9565,11 @@ react-i18next@^11.11.0:
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-parse-stringify "^3.0.1"
+
+react-icons@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
+  integrity sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==
 
 react-is@^16.13.1, react-is@^16.3.2, react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"

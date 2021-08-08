@@ -24,3 +24,6 @@
 .icons_wrapper > a:hover {
     cursor: pointer;
 }
+.errorMessage {
+    color: red;
+}

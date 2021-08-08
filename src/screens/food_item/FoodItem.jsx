@@ -23,7 +23,7 @@ const FoodItem = ({ props }) => {
 
     useEffect(() => {
         dispatch(getUserById(path_id));
-    }, []);
+    }, [dispatch, path_id]);
 
     const foodItemById = useSelector((state) => state.allFoodsState.foodItem);
     const isLoading = useSelector((state) => state.globalState.isLoading);

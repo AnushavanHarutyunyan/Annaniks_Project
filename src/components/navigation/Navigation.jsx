@@ -10,25 +10,27 @@ const Navigation = () => {
         <div className="nav_bar">
             <ul className="nav_ul">
                 <li>
-                    <Link to="/main">{t('ГЛАВНАЯ')}</Link>
+                    <Link to="/home/main">{t('ГЛАВНАЯ')}</Link>
                 </li>
                 <li>
-                    <Link to="/menu">{t('МЕНЮ')}</Link>
+                    <Link to="/home/menu">{t('МЕНЮ')}</Link>
                 </li>
                 <li>
-                    <Link to="/advantages">{t('ПРЕИМУЩЕСТВА')}</Link>
+                    <Link to="/home/advantages">{t('ПРЕИМУЩЕСТВА')}</Link>
                 </li>
                 <li>
-                    <Link to="/about_company">{t('О КОМПАНИИ')}</Link>
+                    <Link to="/home/about_company">{t('О КОМПАНИИ')}</Link>
                 </li>
                 <li>
-                    <Link to="/shipping_payment">{t('ДОСТАВКА И ОПЛАТА')}</Link>
+                    <Link to="/home/shipping_payment">
+                        {t('ДОСТАВКА И ОПЛАТА')}
+                    </Link>
                 </li>
                 <li>
-                    <Link to="/our_clients">{t('НАШИ КЛИЕНТЫ')}</Link>
+                    <Link to="/home/our_clients">{t('НАШИ КЛИЕНТЫ')}</Link>
                 </li>
                 <li>
-                    <Link to="/contact">{t('КОНТАКТЫ')}</Link>
+                    <Link to="/home/contact">{t('КОНТАКТЫ')}</Link>
                 </li>
             </ul>
         </div>

@@ -1,8 +1,10 @@
 //COMPONENTS
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../locales/i18n';
+import { useDispatch, useSelector } from 'react-redux';
+import { outUserPage } from '../../Redux/actions';
+import Button from 'react-bootstrap/Button';
 
 //CSS
 import './header.css';
@@ -10,18 +12,20 @@ import './header.css';
 //PICTURE
 import russian from '../../img/png/russian.png';
 import english from '../../img/png/english.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleSignIn } from '../../Redux/actions';
+import userPic from '../../img/png/user_pic.png';
+import { withRouter } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
 
-const Header = () => {
+const Header = ({ history }) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const bool = useSelector((store) => store.appState.loginPageState);
+    const isLogin = useSelector((state) => state.authState.isLogin);
     const handleChangeLang = (lng) => {
         i18n.changeLanguage(lng);
     };
-    const handleSignIn = () => {
-        dispatch(toggleSignIn(!bool));
+    const handleOut = () => {
+        dispatch(outUserPage());
+        history.push('/home');
     };
     return (
         <>
@@ -34,29 +38,31 @@ const Header = () => {
                             </h4>
                         </div>
                         <div>
-                            <a href="/" className="float-right phone_bar">
+                            <Button
+                                href="/"
+                                variant="danger"
+                                className="ml-2 mr-2"
+                            >
                                 {t('ЗАКАТЬ ЗВАНОК')}
-                            </a>
+                            </Button>
+                            {isLogin ? (
+                                <Button onClick={handleOut}>
+                                    {t('Выход')}
+                                </Button>
+                            ) : (
+                                <Button className="" href="/login">
+                                    {t('Sign In')}
+                                </Button>
+                            )}
                         </div>
-                        <div>
-                            <Link
-                                to="/sign_in"
-                                className="float-right phone_bar"
-                                onClick={handleSignIn}
-                            >
-                                {t('Sign In')}
-                            </Link>
-                        </div>
-                        {/* <div>
-                            <Link
-                                to="/sign_up"
-                                className="float-right phone_bar"
-                            >
-                                {t('Sign Up')}
-                            </Link>
-                        </div> */}
                         <div>
                             <div className="wrapper_lng">
+                                {isLogin && (
+                                    <span className="ml-2 mr-2">
+                                        <img src={userPic} alt="userPic" />
+                                    </span>
+                                )}
+
                                 <span
                                     className="lng"
                                     onClick={() => handleChangeLang('ru')}
@@ -85,4 +91,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default withRouter(Header);

@@ -101,5 +101,17 @@ const menuPlaceholder = (
     </div>
 );
 
-export { menuPlaceholder };
-export { awesomePlaceholder };
+const signInPlaceholder = (
+    <div className="my_awesome_placeholder">
+        <div className="asd">
+            <TextBlock
+                rows={1}
+                color="#E0E0E0"
+                style={{ width: 200, height: 40, marginTop: 10 }}
+            />
+            <RectShape color="#E0E0E0" style={{ width: 250, height: 200 }} />
+        </div>
+    </div>
+);
+
+export { menuPlaceholder, signInPlaceholder, awesomePlaceholder };

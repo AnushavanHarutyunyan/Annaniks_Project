@@ -1,5 +1,4 @@
 //COMPONENTS
-import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import AboutUs from './about_us/AboutUS';
 import Main from './main/index';
@@ -15,38 +14,38 @@ import ErrorPage from './error_page';
 const Home = () => {
     return (
         <Switch>
-            <Route path="/main" exact>
+            <Route path="/home/main" exact>
                 <Main />
             </Route>
-            <Route path="/menu" exact>
+            <Route path="/home/menu" exact>
                 <Menu />
             </Route>
             <Route
-                path="/breakfast/"
+                path="/home/breakfast/"
                 render={(history) => <FoodItem props={history} />}
             />
-            <Route path="/advantages" exact>
+            <Route path="/home/advantages" exact>
                 <Advantages />
             </Route>
-            <Route path="/about_company" exact>
+            <Route path="/home/about_company" exact>
                 <AboutUs />
             </Route>
-            <Route path="/our_clients" exact>
+            <Route path="/home/our_clients" exact>
                 <OurClients />
             </Route>
-            <Route path="/shipping_payment" exact>
+            <Route path="/home/shipping_payment" exact>
                 <Payment />
             </Route>
-            <Route path="/contact" exact>
+            <Route path="/home/contact" exact>
                 <Contact />
             </Route>
-            <Route path="/map" exact>
+            <Route path="/home/map" exact>
                 <Map />
             </Route>
-            <Route path="/404">
+            <Route path="/404" exact>
                 <ErrorPage />
             </Route>
-            <Redirect to="/404" />
+            {/* <Redirect to="/404" /> */}
         </Switch>
     );
 };

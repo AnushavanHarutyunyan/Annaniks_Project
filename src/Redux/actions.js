@@ -32,18 +32,49 @@ const setOrRemoveLoading = (boolean) => {
         payload: boolean,
     };
 };
-const toggleSignIn = (bool) => {
+
+const signIn = (data) => {
     return {
-        type: types.TOGGLE_LOGIN_PAGE,
-        payload: bool,
+        type: types.SIGN_IN,
+        payload: data,
     };
 };
 
+const isLogin = (boolean) => {
+    return {
+        type: types.IS_LOGIN,
+        payload: boolean,
+    };
+};
+
+const setSignInUser = (userData) => {
+    return {
+        type: types.SET_USER_DATA,
+        payload: userData,
+    };
+};
+
+const outUserPage = () => {
+    return {
+        type: types.OUT_USER_PAGE,
+    };
+};
+
+const setErrorMessages = (errorMessage) => {
+    return {
+        type: types.SET_ERROR_MESSAGES,
+        payload: errorMessage,
+    };
+};
 export {
     getFoods,
     setFoods,
     setUserById,
     getUserById,
-    toggleSignIn,
+    signIn,
+    isLogin,
     setOrRemoveLoading,
+    setSignInUser,
+    outUserPage,
+    setErrorMessages,
 };

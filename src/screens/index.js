@@ -14,7 +14,7 @@ import ErrorPage from './error_page';
 const Home = () => {
     return (
         <Switch>
-            <Route path={['/home', '/home/main']} exact>
+            <Route path={['/', '/home', '/home/main']} exact>
                 <Main />
             </Route>
             <Route path="/home/menu" exact>

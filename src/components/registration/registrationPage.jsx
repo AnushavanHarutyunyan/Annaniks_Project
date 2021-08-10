@@ -23,12 +23,15 @@ const RegistrationComponent = ({ history }) => {
     });
     const isLoading = useSelector((state) => state.globalState.isLoading);
     const errorMessage = useSelector((state) => state.globalState.errorMessage);
+    const isLogin = useSelector((state) => state.authState.isLogin);
     const dispatch = useDispatch();
 
     const handleSignIn = (e) => {
         e.preventDefault();
         dispatch(signIn(inputState));
-        history.push('/home');
+        if (isLogin) {
+            history.push('/');
+        }
     };
     const handleChange = ({ target }) => {
         const { type, value } = target;

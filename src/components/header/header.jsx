@@ -5,6 +5,7 @@ import i18n from '../../locales/i18n';
 import { useDispatch, useSelector } from 'react-redux';
 import { outUserPage } from '../../Redux/actions';
 import Button from 'react-bootstrap/Button';
+import { withRouter } from 'react-router-dom';
 
 //CSS
 import './header.css';
@@ -13,7 +14,6 @@ import './header.css';
 import russian from '../../img/png/russian.png';
 import english from '../../img/png/english.png';
 import userPic from '../../img/png/user_pic.png';
-import { withRouter } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 
 const Header = ({ history }) => {

@@ -48,6 +48,7 @@ function* workerSingInSaga({ payload }) {
 function* workerAuthUser() {
     yield localStorage.removeItem('access');
     yield put(setSignInUser({}));
+    yield put(isLogin(false));
 }
 
 //----------------------watchers-----------------------//

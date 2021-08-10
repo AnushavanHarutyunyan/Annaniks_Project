@@ -14,18 +14,18 @@ ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <Provider store={store}>
-                <App />
                 <Switch>
-                    <Route path="/home" exact></Route>
-                    <Route path="/login" exact>
+                    <Route exact path="/home">
+                        <App />
+                    </Route>
+                    <Route exact path="/login">
                         <RegistrationComponent />
                     </Route>
-                    <Route path="/404" exact>
+                    <Route exact path="/404">
                         <ErrorPage />
                     </Route>
                     {/* <Redirect to="/404" /> */}
                 </Switch>
-                ;
             </Provider>
         </BrowserRouter>
     </React.StrictMode>,

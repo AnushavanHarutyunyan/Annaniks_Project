@@ -14,7 +14,7 @@ import ErrorPage from './error_page';
 const Home = () => {
     return (
         <Switch>
-            <Route path="/home/main" exact>
+            <Route path={['/home', '/home/main']} exact>
                 <Main />
             </Route>
             <Route path="/home/menu" exact>
@@ -42,10 +42,10 @@ const Home = () => {
             <Route path="/home/map" exact>
                 <Map />
             </Route>
-            <Route path="/404" exact>
+            {/* <Route path="/home/404" exact>
                 <ErrorPage />
             </Route>
-            {/* <Redirect to="/404" /> */}
+            <Redirect to="/home/404" /> */}
         </Switch>
     );
 };

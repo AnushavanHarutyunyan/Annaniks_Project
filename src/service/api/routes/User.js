@@ -2,7 +2,7 @@ import API from '../../../utils/API';
 import LoginApi from '../../../utils/LoginApi';
 
 class UserEP {
-    routeName = 'users';
+    // routeName = 'users';
     getAll() {
         return API.get(`/users`).then(({ data }) => data); // `/${this.routeName}` es tarberagov chi ashxadi
     }
@@ -12,10 +12,11 @@ class UserEP {
     submitLogin(loginData) {
         return LoginApi.post(`/users/login-user/`, loginData)
             .then(({ data }) => data)
-            .catch((e) => console.log('error handle', e.response));
+            .catch((e) => {
+                console.log('error handle', e.response);
+            });
     }
     getMe() {
-        // const auth = `Bearer ${token}`;
         return LoginApi.get(`/users/get-me/`)
             .then((data) => data)
             .catch((e) => console.log('error handle', e.response));

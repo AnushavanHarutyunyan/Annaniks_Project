@@ -7,7 +7,7 @@ const api = axios.create({
 
 export const setApiAuthorizationHeader = (token) => {
     api.defaults.headers.common.Authorization = token
-        ? 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI4MjY4OTUwLCJqdGkiOiJjMTQ5MTQwNjUwYmE0OTUwODY5YTdjMzg4ZDBjYmVkZCIsInVzZXJfaWQiOjE4OH0.ENMMjEaKk_PDSc3OPiz8szYesc4Lmikh_XVqVG6nEjI'
+        ? `Bearer ${token}`
         : null;
 };
 

@@ -4,21 +4,22 @@ import Header from './components/header/header';
 import Home from './screens';
 import Footer from './components/footer/Footer';
 import Navigation from './components/navigation/Navigation';
-
-//CSS
-import './App.css';
 import { useDispatch } from 'react-redux';
 import { isLogin, setOrRemoveLoading, setSignInUser } from './Redux/actions';
 import UserEP from '../src/service/api/routes/User';
 import { setApiAuthorizationHeader } from './utils/LoginApi';
+
+//CSS
+import './App.css';
 
 function App() {
     const dispatch = useDispatch();
     useEffect(() => {
         let access = localStorage.getItem('access');
         if (access) {
+            access = access.substr(1, access.length - 2);
             setApiAuthorizationHeader(access);
-            UserEP.getMe().then(({ data }) => {
+            UserEP.getMe(access).then(({ data }) => {
                 dispatch(setSignInUser(data));
             });
             dispatch(isLogin(true));

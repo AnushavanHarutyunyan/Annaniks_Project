@@ -45,6 +45,25 @@ function* workerSingInSaga({ payload }) {
     }
 }
 
+function* workerSingUpSaga({ payload }) {
+    const second_request_obj = {
+        email: payload.email,
+        phone_number: payload.phone_number,
+    };
+    try {
+        yield put(setOrRemoveLoading(false));
+        const signUpData = yield call(
+            UserEP.submitRegistration,
+            second_request_obj
+        );
+        console.log(signUpData);
+        yield put(setOrRemoveLoading(true));
+    } catch (error) {
+        yield put(setErrorMessages(error.message));
+        yield put(setOrRemoveLoading(true));
+    }
+}
+
 function* workerAuthUser() {
     yield localStorage.removeItem('access');
     yield put(setSignInUser({}));
@@ -62,6 +81,10 @@ export function* watcherGetUserById() {
 
 export function* wathcherSignIn() {
     yield takeEvery(types.SIGN_IN, workerSingInSaga);
+}
+
+export function* wathcherSignUp() {
+    yield takeEvery(types.SIGN_UP, workerSingUpSaga);
 }
 
 export function* wathcherAuthUser() {

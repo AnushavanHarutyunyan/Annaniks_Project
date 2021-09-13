@@ -4,6 +4,7 @@ import {
     wathcherAuthUser,
     wathcherLoadData,
     wathcherSignIn,
+    wathcherSignUp,
 } from './saga';
 
 export function* rootWatcher() {
@@ -11,6 +12,7 @@ export function* rootWatcher() {
         watcherGetUserById(),
         wathcherLoadData(),
         wathcherSignIn(),
+        wathcherSignUp(),
         wathcherAuthUser(),
     ]);
 }

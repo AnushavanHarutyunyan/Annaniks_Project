@@ -26,7 +26,7 @@ const Menu = () => {
     const foodElemJSX = foodsData.map((elem, indx) => {
         return (
             <div className="row ml-2 mr-2" key={indx}>
-                <Link to={`/breakfast?id=${elem.id}`}>
+                <Link to={`/home/menu/breakfast?id=${elem.id}`}>
                     <FoodElementComponent data={elem} />
                 </Link>
             </div>

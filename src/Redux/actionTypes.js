@@ -18,6 +18,7 @@ const types = {
 
     //login
     SIGN_IN: 'SIGN_IN',
+    SIGN_UP: 'SIGN_UP',
 
     //Auth
     IS_LOGIN: 'IS_LOGIN',

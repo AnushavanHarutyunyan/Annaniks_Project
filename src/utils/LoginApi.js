@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://gov.annaniks.com',
+    baseURL: 'http://game.annaniks.com',
     responseType: 'json',
 });
 

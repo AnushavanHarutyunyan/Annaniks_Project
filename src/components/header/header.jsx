@@ -50,9 +50,14 @@ const Header = ({ history }) => {
                                     {t('Выход')}
                                 </Button>
                             ) : (
-                                <Button className="" href="/login">
-                                    {t('Sign In')}
-                                </Button>
+                                <div>
+                                    <Button className="" href="/login">
+                                        {t('Sign In')}
+                                    </Button>
+                                    <Button className="" href="/register_user">
+                                        {t('Sign Up')}
+                                    </Button>
+                                </div>
                             )}
                         </div>
                         <div>

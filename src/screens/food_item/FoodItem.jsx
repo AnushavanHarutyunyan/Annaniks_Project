@@ -20,7 +20,7 @@ const FoodItem = ({ props }) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const path_id = +window.location.search.slice(4); /// ??????????
-
+    console.log(path_id);
     useEffect(() => {
         dispatch(getUserById(path_id));
     }, [dispatch, path_id]);
@@ -61,7 +61,7 @@ const FoodItem = ({ props }) => {
                         </div>
                         <Button
                             onClick={() => {
-                                props.history.push('/menu');
+                                props.history.push('/home/menu');
                             }}
                         >
                             Back To Menu

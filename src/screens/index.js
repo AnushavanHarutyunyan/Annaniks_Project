@@ -1,51 +1,29 @@
 //COMPONENTS
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import AboutUs from './about_us/AboutUS';
 import Main from './main/index';
 import OurClients from './our_clients/OurClients';
 import Payment from './payment/Payment';
 import Menu from './menu/Menu';
 import Advantages from './advantages/Advantages';
-import Map from './map/Map';
+// import Map from './map/Map';
 import Contact from './contact/Contact';
 import FoodItem from '../screens/food_item/FoodItem';
-import ErrorPage from './error_page';
 
 const Home = () => {
     return (
         <Switch>
-            <Route path={['/', '/home', '/home/main']} exact>
-                <Main />
-            </Route>
-            <Route path="/home/menu" exact>
-                <Menu />
-            </Route>
+            <Route component={Main} path={['/', '/home', '/home/main']} exact />
+            <Route component={Menu} path="/home/menu" exact />
             <Route
-                path="/home/breakfast/"
+                path="/home/menu/breakfast/"
                 render={(history) => <FoodItem props={history} />}
             />
-            <Route path="/home/advantages" exact>
-                <Advantages />
-            </Route>
-            <Route path="/home/about_company" exact>
-                <AboutUs />
-            </Route>
-            <Route path="/home/our_clients" exact>
-                <OurClients />
-            </Route>
-            <Route path="/home/shipping_payment" exact>
-                <Payment />
-            </Route>
-            <Route path="/home/contact" exact>
-                <Contact />
-            </Route>
-            <Route path="/home/map" exact>
-                <Map />
-            </Route>
-            {/* <Route path="/home/404" exact>
-                <ErrorPage />
-            </Route>
-            <Redirect to="/home/404" /> */}
+            <Route component={Advantages} path="/home/advantages" exact />
+            <Route component={AboutUs} path="/home/about_company" exact />
+            <Route component={OurClients} path="/home/our_clients" exact />
+            <Route component={Payment} path="/home/shipping_payment" exact />
+            <Route component={Contact} path="/home/contact" exact />
         </Switch>
     );
 };

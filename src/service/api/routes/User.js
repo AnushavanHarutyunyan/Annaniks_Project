@@ -1,5 +1,6 @@
 import API from '../../../utils/API';
 import LoginApi from '../../../utils/LoginApi';
+import axios from 'axios';
 
 class UserEP {
     // routeName = 'users';
@@ -12,6 +13,16 @@ class UserEP {
     submitLogin(loginData) {
         return LoginApi.post(`/users/login-user/`, loginData)
             .then(({ data }) => data)
+            .catch((e) => {
+                console.log('error handle', e.response);
+            });
+    }
+    submitRegistration(signUpData) {
+        return LoginApi.post('/create_conf_code/', signUpData)
+            .then(({ data }) => {
+                console.log('data', data);
+                return data;
+            })
             .catch((e) => {
                 console.log('error handle', e.response);
             });

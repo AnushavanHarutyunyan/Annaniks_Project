@@ -40,6 +40,13 @@ const signIn = (data) => {
     };
 };
 
+const signUp = (data) => {
+    return {
+        type: types.SIGN_UP,
+        payload: data,
+    };
+};
+
 const isLogin = (boolean) => {
     return {
         type: types.IS_LOGIN,
@@ -72,6 +79,7 @@ export {
     setUserById,
     getUserById,
     signIn,
+    signUp,
     isLogin,
     setOrRemoveLoading,
     setSignInUser,

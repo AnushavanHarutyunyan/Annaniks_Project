@@ -1,7 +1,6 @@
 .sing_up_wrapper {
     background-color: white;
     width: 50%;
-    height: 100vh;
 }
 .form {
     padding: 0px 15px 13px 25px;
@@ -36,4 +35,9 @@
 }
 .h1_registration_page {
     margin: 0px 170px 0px 170px;
+}
+@media screen and (max-width: 1000px) {
+    .h1_registration_page {
+        margin: 0px 100px 0px 100px;
+    }
 }

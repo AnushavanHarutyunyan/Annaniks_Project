@@ -37,21 +37,23 @@ const Header = ({ history }) => {
                                 +374 (77) 77 33 77
                             </h4>
                         </div>
-                        <div>
-                            <Button
-                                href="/"
-                                variant="danger"
-                                className="ml-2 mr-2"
-                            >
-                                {t('ЗАКАТЬ ЗВАНОК')}
-                            </Button>
+                        <div className="d-flex">
+                            <div>
+                                <Button
+                                    href="/"
+                                    variant="danger"
+                                    className="ml-2 mr-2"
+                                >
+                                    {t('ЗАКАТЬ ЗВАНОК')}
+                                </Button>
+                            </div>
                             {isLogin ? (
                                 <Button onClick={handleOut}>
                                     {t('Выход')}
                                 </Button>
                             ) : (
                                 <div>
-                                    <Button className="" href="/login">
+                                    <Button className="mr-2" href="/login">
                                         {t('Sign In')}
                                     </Button>
                                     <Button className="" href="/register_user">

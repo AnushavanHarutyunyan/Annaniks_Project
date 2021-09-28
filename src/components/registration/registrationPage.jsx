@@ -31,10 +31,11 @@ const RegistationComponent = ({ history }) => {
     };
     const handleChange = ({ target }) => {
         const { name, value } = target;
-        setInputState({
+        if(name !== "username"){
+            setInputState({
             ...inputState,
             [name]: value,
-        });
+        })}
     };
 
     return (
@@ -78,14 +79,14 @@ const RegistationComponent = ({ history }) => {
 
                         <div className="w-80 ">
                             <FormControl
-                                name="firstName"
+                                name="first_name"
                                 aria-label="Text input with checkbox"
                                 onChange={handleChange}
                                 placeholder="First Name"
                                 className="mb-3 w-75 mx-auto"
                             />
                             <FormControl
-                                name="lastName"
+                                name="last_name"
                                 aria-label="Text input with checkbox"
                                 onChange={handleChange}
                                 placeholder="Last Name"
@@ -106,7 +107,7 @@ const RegistationComponent = ({ history }) => {
                                 className="mb-3 w-75 mx-auto"
                             />
                             <FormControl
-                                name="userName"
+                                name="username"
                                 aria-label="Text input with checkbox"
                                 onChange={handleChange}
                                 placeholder="User Name"
@@ -121,7 +122,7 @@ const RegistationComponent = ({ history }) => {
                                 className="mb-3 w-75 mx-auto"
                             />
                             <FormControl
-                                name="confirmPassword"
+                                name="confirm_password"
                                 aria-label="Text input with checkbox"
                                 onChange={handleChange}
                                 placeholder="Confirm Password"

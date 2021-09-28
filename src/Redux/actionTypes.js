@@ -22,8 +22,9 @@ const types = {
 
     //Auth
     IS_LOGIN: 'IS_LOGIN',
-    SET_USER_DATA: 'SET_USER_DATA',
+    SET_SIGNIN_USER_DATA: 'SET_SIGNIN_USER_DATA',
     OUT_USER_PAGE: 'OUT_USER_PAGE',
+    REGISTRETED_USER:'REGISTRETED_USER'
 };
 
 export default types;

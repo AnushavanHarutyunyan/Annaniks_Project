@@ -1,9 +1,7 @@
 import API from '../../../utils/API';
 import LoginApi from '../../../utils/LoginApi';
-import axios from 'axios';
 
 class UserEP {
-    // routeName = 'users';
     getAll() {
         return API.get(`/users`).then(({ data }) => data); // `/${this.routeName}` es tarberagov chi ashxadi
     }
@@ -11,26 +9,36 @@ class UserEP {
         return API.get(`/users/${id}`).then(({ data }) => data);
     }
     submitLogin(loginData) {
-        return LoginApi.post(`/users/login-user/`, loginData)
-            .then(({ data }) => data)
+        return LoginApi.post(`/user_login`, loginData)
+            .then((response) => response)
             .catch((e) => {
                 console.log('error handle', e.response);
             });
     }
-    submitRegistration(signUpData) {
-        return LoginApi.post('/create_conf_code/', signUpData)
-            .then(({ data }) => {
-                console.log('data', data);
-                return data;
-            })
+    submitRegistration(signUpDataPart) {
+        return LoginApi.post('/create_conf_code', signUpDataPart)
+            .then((response) => response.data)
             .catch((e) => {
-                console.log('error handle', e.response);
+                console.log('error handle SubmitRegistration', e.response);
+            });
+    }
+    registeredUser(signUpData) {
+        return LoginApi.post('/register_user', signUpData)
+            .then((response) => response)
+            .catch((error) => {
+                if (error.response) {
+                    console.log('error response', error.response);
+                } else if (error.request) {
+                    console.log('error reques', error.request);
+                } else {
+                    console.log('error message', error.message);
+                }
             });
     }
     getMe() {
-        return LoginApi.get(`/users/get-me/`)
+        return LoginApi.get(`/users/`)
             .then((data) => data)
-            .catch((e) => console.log('error handle', e.response));
+            .catch((e) => console.log('error handle getMe', e.response));
     }
 }
 

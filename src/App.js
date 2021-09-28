@@ -16,11 +16,20 @@ function App() {
     const dispatch = useDispatch();
     useEffect(() => {
         let access = localStorage.getItem('access');
+        // let refresh = localStorage.getItem('refresh');
         if (access) {
             access = access.substr(1, access.length - 2);
             setApiAuthorizationHeader(access);
-            UserEP.getMe(access).then(({ data }) => {
+            UserEP.getMe(access).then(( data ) => {
                 dispatch(setSignInUser(data));
+            })
+            .catch(e=>{
+                if(e.status === 400 || 401){
+                    UserEP.getme().then((data) => {
+                        // dispatch(setSignInUser(data))
+                        console.log('eror get me',e.response)
+                    })
+                }
             });
             dispatch(isLogin(true));
             dispatch(setOrRemoveLoading(true));

@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, FormControl } from 'react-bootstrap';
 import { Link, withRouter } from 'react-router-dom';
 import { signIn } from '../../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInPlaceholder } from '../../utils/placeholder/placeholder';
 import ReactPlaceholder from 'react-placeholder/lib';
-import FloatingLabel from 'react-bootstrap-floating-label';
-import FormCheck from 'react-bootstrap/FormCheck';
 
 //CSS
 import '../registration/registration_page.css';
@@ -18,7 +16,7 @@ import facebook_icon from '../../img/svg/facebook.svg';
 
 const LoginComponent = ({ history }) => {
     const [inputState, setInputState] = useState({
-        email: '',
+        username: '',
         password: '',
     });
     const isLoading = useSelector((state) => state.globalState.isLoading);
@@ -26,6 +24,7 @@ const LoginComponent = ({ history }) => {
     const dispatch = useDispatch();
     const handleSignIn = (e) => {
         e.preventDefault();
+        Object.assign(inputState,{role_code:"CL"})
         if (false) {
         } else {
             dispatch(signIn(inputState));
@@ -33,15 +32,15 @@ const LoginComponent = ({ history }) => {
         }
     };
     const handleChange = ({ target }) => {
-        const { type, value } = target;
+        const { name, value } = target;
         setInputState({
             ...inputState,
-            [type]: value,
+            [name]: value,
         });
     };
 
     return (
-        <div className="d-flex justify-content-end">
+        <div className="d-flex justify-content-end min-vh-100">
             <div className="sing_up_wrapper">
                 <ReactPlaceholder
                     showLoadingAnimation
@@ -51,10 +50,10 @@ const LoginComponent = ({ history }) => {
                     customPlaceholder={signInPlaceholder}
                 >
                     <Form className="form" onSubmit={(e) => handleSignIn(e)}>
-                        <Form.Text>
-                            <h1>Sign In </h1>
-                        </Form.Text>
-                        <div className="icons_wrapper">
+                        <div className="mx-auto">
+                            <h1 className="h1_registration_page">Sign In</h1>
+                        </div>
+                        <div className="icons_wrapper mx-auto">
                             <div>
                                 <Link to="/">
                                     <img src={google_icon} alt="google_icon" />
@@ -78,56 +77,31 @@ const LoginComponent = ({ history }) => {
                                 </Link>
                             </div>
                         </div>
-                        <Form.Group
-                            className="mb-3 form_group"
-                            controlId="formBasicEmail"
-                            onChange={(e) => handleChange(e)}
-                        >
-                            <FloatingLabel
-                                controlId="floatingInput"
-                                label="Email address"
-                                className="mb-3"
-                                type="email"
-                            >
-                                <Form.Control
-                                    type="email"
-                                    placeholder="name@example.com"
-                                />
-                            </FloatingLabel>
-                        </Form.Group>
-                        <Form.Group
-                            className="mb-3 form_group"
-                            controlId="formBasicPassword"
-                            onChange={(e) => handleChange(e)}
-                        >
-                            <FloatingLabel
-                                controlId="floatingPassword"
-                                label="Password"
+                        
+                        <FormControl
+                                name="username"
+                                onChange={handleChange}
+                                placeholder="Email address"
+                                className="mb-3 w-75 mx-auto"
+                            />
+                            <FormControl
+                                name="password"
+                                onChange={handleChange}
+                                placeholder="Password"
                                 type="password"
+                                className="mb-3 w-75 mx-auto"
+                            />
+                        
+                        {errorMessage}
+                        <div className="btn_sign_up">
+                            <Button
+                                className="submit_btn"
+                                variant="primary"
+                                type="submit"
                             >
-                                <Form.Control
-                                    types="password"
-                                    placeholder="Password"
-                                />
-                            </FloatingLabel>
-                            <FormCheck className="errorMessage">
-                                {errorMessage}
-                            </FormCheck>
-                        </Form.Group>
-                        <Form.Group
-                            className="mb-3 form_group1"
-                            controlId="formBasicCheckbox"
-                        >
-                            <Form.Check type="checkbox" label="Remember me" />
-                        </Form.Group>
-
-                        <Button
-                            className="submit_btn"
-                            variant="primary"
-                            type="submit"
-                        >
-                            Sign In
-                        </Button>
+                                Sign In
+                            </Button>
+                        </div>
                     </Form>
                 </ReactPlaceholder>
             </div>

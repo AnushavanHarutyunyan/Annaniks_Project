@@ -7,7 +7,7 @@ const initialState = {
 
 const userDataReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.SET_USER_DATA: {
+        case types.SET_SIGNIN_USER_DATA: {
             return {
                 ...state,
                 userData: action.payload,

@@ -12,7 +12,6 @@ const setFoods = (foodsData) => {
         payload: foodsData,
     };
 };
-
 const getUserById = (id) => {
     return {
         type: types.GET_USER_BY_ID,
@@ -53,10 +52,9 @@ const isLogin = (boolean) => {
         payload: boolean,
     };
 };
-
 const setSignInUser = (userData) => {
     return {
-        type: types.SET_USER_DATA,
+        type: types.SET_SIGNIN_USER_DATA,
         payload: userData,
     };
 };
@@ -73,6 +71,7 @@ const setErrorMessages = (errorMessage) => {
         payload: errorMessage,
     };
 };
+
 export {
     getFoods,
     setFoods,

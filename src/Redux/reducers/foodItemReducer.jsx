@@ -62,12 +62,6 @@ const initialState = {
 
 const allFoodsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.GET_FOOD: {
-            return {
-                ...state,
-                foodsData: action.payload,
-            };
-        }
         case types.SET_FOODS: {
             return {
                 ...state,
@@ -80,7 +74,6 @@ const allFoodsReducer = (state = initialState, action) => {
                 foodItem: action.payload,
             };
         }
-
         default:
             return state;
     }

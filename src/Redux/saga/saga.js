@@ -7,15 +7,18 @@ import {
     setUserById,
     isLogin,
     setErrorMessages,
+    setFoodCategoriesNames,
+    setFoodsTypesNames,
 } from '../actions';
 import UserEP from '../../service/api/routes/User';
 
 //----------------------workers-----------------------//
 
-function* workerGetUsersSaga() {
+function* workerGetFoodsSaga() {
     yield put(setOrRemoveLoading(false));
-    const users = yield call(UserEP.getAll);
-    yield put(setFoods(users));
+    // yield select()
+    const foods = yield call(UserEP.getFoods);
+    yield put(setFoods(foods));
     yield put(setOrRemoveLoading(true));
 }
 
@@ -27,7 +30,8 @@ function* workerGetUserByIdSaga({ payload }) {
         yield put(setUserById(userId));
         yield put(setOrRemoveLoading(true));
     } catch (error) {
-        // yield()
+        yield put(setOrRemoveLoading(true));
+        console.log(error, 'errorGetUserById');
     }
 }
 
@@ -35,11 +39,20 @@ function* workerSingInSaga({ payload }) {
     try {
         yield put(setOrRemoveLoading(false));
         const signInUserData = yield call(UserEP.submitLogin, payload);
-        console.log(signInUserData,'signInUserData')
-        yield put(setSignInUser(signInUserData.data.user))
-        if(signInUserData){
-            localStorage.setItem('access', JSON.stringify(signInUserData.data.access));
-            localStorage.setItem('refresh', JSON.stringify(signInUserData.data.refresh));
+        yield put(setSignInUser(signInUserData.data.user));
+        if (signInUserData) {
+            localStorage.setItem(
+                'access',
+                JSON.stringify(signInUserData.data.access)
+            );
+            localStorage.setItem(
+                'user',
+                JSON.stringify(signInUserData.data.user.user)
+            );
+            localStorage.setItem(
+                'refresh',
+                JSON.stringify(signInUserData.data.refresh)
+            );
             yield put(isLogin(true));
         }
         yield put(setOrRemoveLoading(true));
@@ -64,32 +77,52 @@ function* workerSingUpSaga({ payload }) {
             { confirm_code: signUpData.code, role_code: 'CL' },
             payload
         );
-        console.log(registreted_userData);
-        const regUserData = yield call(UserEP.registeredUser, registreted_userData);
-        console.log(regUserData, 'reg_user');
+        yield call(UserEP.registeredUser, registreted_userData);
         yield put(setOrRemoveLoading(true));
     } catch (error) {
-        console.log(error.message,'error SingUp')
+        console.log(error.message, 'error SingUp');
         yield put(setErrorMessages(error.message));
         yield put(setOrRemoveLoading(true));
     }
 }
 
-// function* workerSetSignInUser(){
-    
-// }
-
-function* workerAuthUser() {
+function* workerAuthUserSaga() {
     yield localStorage.removeItem('access');
     yield localStorage.removeItem('refresh');
-    yield put(setSignInUser({}));
-    yield put(setSignInUser({}));
+    yield put(setSignInUser('{}'));
     yield put(isLogin(false));
 }
 
+function* workerGetFoodsCategoriesSaga({ payload }) {
+    const categoriesFood = yield call(UserEP.getFoods, payload);
+    yield put(setFoods(categoriesFood));
+}
+
+function* workerGetFoodsCategoriesNamesSaga() {
+    const data = yield call(UserEP.getFoodCategoriesNames);
+    yield put(setFoodCategoriesNames(data));
+}
+
+function* workerGetFoodsTypesNamesSaga() {
+    const data = yield call(UserEP.getFoodsTypesNames);
+    yield put(setFoodsTypesNames(data));
+}
+
+function* workerGetMeSaga() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    try {
+        yield put(setSignInUser(user));
+    } catch (e) {
+        if (e.status === 400 || 401) {
+            console.log('eror getMe', e.statusText);
+        }
+    }
+}
+
 //----------------------watchers-----------------------//
-export function* wathcherLoadData() {
-    yield takeEvery(types.GET_FOODS, workerGetUsersSaga);
+
+export function* wathcherGetFoods() {
+    yield takeEvery(types.GET_FOODS, workerGetFoodsSaga);
 }
 
 export function* watcherGetUserById() {
@@ -104,10 +137,25 @@ export function* wathcherSignUp() {
     yield takeEvery(types.SIGN_UP, workerSingUpSaga);
 }
 
-// export function* whatcherSetSignInUser(){
-//     yield takeEvery(types.SET_SIGNIN_USER_DATA,workerSetSignInUser)
-// }
-
 export function* wathcherAuthUser() {
-    yield takeEvery(types.OUT_USER_PAGE, workerAuthUser);
+    yield takeEvery(types.OUT_USER_PAGE, workerAuthUserSaga);
+}
+
+export function* watcherGetFoodsCategories() {
+    yield takeEvery(types.GET_FOODS_CATEGORIES, workerGetFoodsCategoriesSaga);
+}
+
+export function* watcherGetFoodsCategoriesNames() {
+    yield takeEvery(
+        types.GET_FOODS_CATEGORIES_NAMES,
+        workerGetFoodsCategoriesNamesSaga
+    );
+}
+
+export function* watcherGetFoodsTypesNames() {
+    yield takeEvery(types.GET_FOODS_TYPES_NAMES, workerGetFoodsTypesNamesSaga);
+}
+
+export function* watcherGetMe() {
+    yield takeEvery(types.GET_ME, workerGetMeSaga);
 }

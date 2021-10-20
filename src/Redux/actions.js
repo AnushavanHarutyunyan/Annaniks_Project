@@ -72,6 +72,45 @@ const setErrorMessages = (errorMessage) => {
     };
 };
 
+const getFoodCategoriesNames = () => {
+    return {
+        type: types.GET_FOODS_CATEGORIES_NAMES,
+    };
+};
+
+const setFoodCategoriesNames = (foodsCategories) => {
+    return {
+        type: types.SET_FOODS_CATEGORIES_NAMES,
+        payload: foodsCategories,
+    };
+};
+
+const getFoodsTypesNames = () => {
+    return {
+        type: types.GET_FOODS_TYPES_NAMES,
+    };
+};
+
+const setFoodsTypesNames = (foodsTypesNames) => {
+    return {
+        type: types.SET_FOODS_TYPES_NAMES,
+        payload: foodsTypesNames,
+    };
+};
+
+const getFoodCategories = (foodCategoriesName) => {
+    return {
+        type: types.GET_FOODS_CATEGORIES,
+        payload: foodCategoriesName,
+    };
+};
+
+const getMe = () => {
+    return {
+        type: types.GET_ME,
+    };
+};
+
 export {
     getFoods,
     setFoods,
@@ -84,4 +123,10 @@ export {
     setSignInUser,
     outUserPage,
     setErrorMessages,
+    getFoodCategoriesNames,
+    setFoodCategoriesNames,
+    getFoodCategories,
+    getFoodsTypesNames,
+    setFoodsTypesNames,
+    getMe,
 };

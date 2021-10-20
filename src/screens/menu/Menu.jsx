@@ -10,6 +10,7 @@ import { menuPlaceholder } from '../../utils/placeholder/placeholder';
 
 //CSS
 import 'react-placeholder/lib/reactPlaceholder.css';
+import SearchingComp from '../../components/searching/Searching';
 
 const Menu = () => {
     const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const Menu = () => {
 
     return (
         <div>
+            <SearchingComp />
             <div className="wraper_link">
                 <a href="/" className="link_menu">
                     {t('MENU FOR THE CURRENT WEEK')}

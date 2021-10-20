@@ -1,5 +1,5 @@
 //COMPONENTS
-// import { useSelector } from 'react-redux';
+
 import { useTranslation } from 'react-i18next';
 // import Stars from './stars/stars';
 
@@ -11,16 +11,8 @@ import food_elem from '../../../img/jpg/food_elem.jpg';
 import ksherq from '../../../img/svg/ksherq.png';
 
 const FoodElementComponent = (props) => {
-    // const state = useSelector((state) => state.allFoodsState.foodsData);
     const { t } = useTranslation();
-    const { email, name, id } = props.data;
-    // // const { title, starsCount, description, wieght, quantity, price } =
-    // //     props.foodElem;
-    // let stars = [];
-
-    // for (let i = 0; i < starsCount; i++) {
-    //     stars.push(<Stars key={i} />);
-    // }
+    const { description, name, id, price } = props.data;
 
     return (
         <div className="col">
@@ -34,9 +26,8 @@ const FoodElementComponent = (props) => {
                 <div className="d-flex justify-content-center mt-3 mb-3">
                     <img src={food_elem} alt="foodElem" />
                 </div>
-                <div className="ml-3 mr-3">{/* <p>{t(description)}</p> */}</div>
                 <div className="ml-3 mr-3">
-                    <p>{t(email)}</p>
+                    <p>Description {t(description)}</p>
                 </div>
                 <div className="d-flex justify-content-center mt-5 mb-3">
                     <span>{/* {t('Кол-во')} {quantity} */}</span>
@@ -52,8 +43,7 @@ const FoodElementComponent = (props) => {
                         {t('г')}
                     </span>
                     <span className="price">
-                        {/* {price} */}
-                        {t('руб')}
+                        {price} {t('руб')}
                     </span>
                 </div>
             </div>

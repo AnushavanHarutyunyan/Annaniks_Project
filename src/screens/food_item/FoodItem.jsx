@@ -19,15 +19,48 @@ import food_element_Picture from '../../img/jpg/food_elem.jpg';
 const FoodItem = ({ props }) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
+    const foodItemById = useSelector((state) => state.allFoodsState.foodItem);
     const path_id = +window.location.search.slice(4); /// ??????????
-    console.log(path_id);
     useEffect(() => {
         dispatch(getUserById(path_id));
-    }, [dispatch, path_id]);
+    }, []);
 
-    const foodItemById = useSelector((state) => state.allFoodsState.foodItem);
     const isLoading = useSelector((state) => state.globalState.isLoading);
-
+    const foodItemByIdJSX = foodItemById.map((item, indx) => {
+        return (
+            <div className="food_item" key={indx}>
+                <div>
+                    <h1>{t(`Name-${item.name}`)}</h1>
+                </div>
+                <div>
+                    <h1>{`Description-${item.description}`}</h1>
+                    <h1>{`Id-${item.id}`}</h1>
+                </div>
+                <div>
+                    <img src={item.image} alt="foodItemById" />
+                </div>
+                <div>
+                    <p>{t(`Price-${item.price}`)}</p>
+                </div>
+                <div>
+                    <p>{`Is vegetarian-${item.is_vegetarian}`}</p>
+                </div>
+                <div>
+                    <p>{`Is vegan-${item.is_vegan}`}</p>
+                </div>
+                <div>
+                    <p>{`Is healthy-${item.is_healthy}`}</p>
+                </div>
+                <Button
+                    onClick={() => {
+                        props.history.push('/home/menu');
+                    }}
+                >
+                    Back To Menu
+                </Button>
+            </div>
+        );
+    });
     return (
         <div className="food_item_wrapper">
             <ReactPlaceholder
@@ -38,36 +71,7 @@ const FoodItem = ({ props }) => {
                 customPlaceholder={awesomePlaceholder}
                 className="react_placeholder"
             >
-                {
-                    <div className="food_item">
-                        <div>
-                            <h1>{t(`User-Name-${foodItemById.username}`)}</h1>
-                        </div>
-                        <div>
-                            <h1>{`name-${foodItemById.name}`}</h1>
-                            <h1>{`id-${foodItemById.id}`}</h1>
-                        </div>
-                        <div>
-                            <img
-                                src={food_element_Picture}
-                                alt="foodItemById"
-                            />
-                        </div>
-                        <div>
-                            <p>{t(`email-${foodItemById.phone}`)}</p>
-                        </div>
-                        <div>
-                            <p>{`phone-${foodItemById.email}`}</p>
-                        </div>
-                        <Button
-                            onClick={() => {
-                                props.history.push('/home/menu');
-                            }}
-                        >
-                            Back To Menu
-                        </Button>
-                    </div>
-                }
+                {foodItemByIdJSX}
             </ReactPlaceholder>
         </div>
     );

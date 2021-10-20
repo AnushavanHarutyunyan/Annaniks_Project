@@ -2,19 +2,25 @@ import { all } from 'redux-saga/effects';
 import {
     watcherGetUserById,
     wathcherAuthUser,
-    wathcherLoadData,
+    wathcherGetFoods,
     wathcherSignIn,
     wathcherSignUp,
-    // whatcherSetSignInUser
+    watcherGetFoodsCategories,
+    watcherGetMe,
+    watcherGetFoodsCategoriesNames,
+    watcherGetFoodsTypesNames,
 } from './saga';
 
 export function* rootWatcher() {
     yield all([
         watcherGetUserById(),
-        wathcherLoadData(),
+        wathcherGetFoods(),
         wathcherSignIn(),
         wathcherSignUp(),
         wathcherAuthUser(),
-        // whatcherSetSignInUser()
+        watcherGetFoodsCategories(),
+        watcherGetFoodsCategoriesNames(),
+        watcherGetFoodsTypesNames(),
+        watcherGetMe(),
     ]);
 }
